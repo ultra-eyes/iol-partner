@@ -12,12 +12,8 @@
         // URLパラメータからクリニックIDを取得（デフォルト: demo）
         const params = new URLSearchParams(window.location.search);
         const clinicId = params.get('clinic') || 'demo';
-    </script>
-    <script id="config-loader"></script>
-    <script>
-        // config/{clinicId}.js を動的に読み込み
-        const loader = document.getElementById('config-loader');
-        loader.src = `config/${clinicId}.js`;
+        // config/{clinicId}.js を同期的に読み込み
+        document.write(`<script src="config/${clinicId}.js"><\/script>`);
     </script>
 
     <script src="https://cdn.tailwindcss.com"></script>
