@@ -9,9 +9,9 @@
     <!-- CONFIG 読み込み: ?clinic=kozawa のように指定 -->
     <!-- ============================================================ -->
     <script>
-        // URLパラメータからクリニックIDを取得（デフォルト: kozawa）
+        // URLパラメータからクリニックIDを取得（デフォルト: demo）
         const params = new URLSearchParams(window.location.search);
-        const clinicId = params.get('clinic') || 'kozawa';
+        const clinicId = params.get('clinic') || 'demo';
     </script>
     <script id="config-loader"></script>
     <script>
