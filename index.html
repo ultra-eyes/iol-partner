@@ -9,9 +9,14 @@
     <!-- CONFIG 読み込み: ?clinic=kozawa のように指定 -->
     <!-- ============================================================ -->
     <script>
-        // URLパラメータからクリニックIDを取得（デフォルト: demo）
+        // クリニックIDの決定: URLパラメータ > ホスト名 > デフォルト(demo)
         const params = new URLSearchParams(window.location.search);
-        const clinicId = params.get('clinic') || 'demo';
+        const hostMap = {
+            'kozawa-iol.netlify.app': 'kozawa',
+            'imai-multifocal-iol.netlify.app': 'imai',
+            // 新規クリニック追加時はここに1行追加
+        };
+        const clinicId = params.get('clinic') || hostMap[location.hostname] || 'demo';
         // config/{clinicId}.js を同期的に読み込み
         document.write(`<script src="config/${clinicId}.js"><\/script>`);
     </script>
