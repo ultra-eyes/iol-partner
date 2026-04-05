@@ -18,7 +18,7 @@ jobs:
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASS }}
           local-dir: ./
-          server-dir: /ultra-eyes.com/public_html/partner-iol-demo.ultra-eyes.com/
+          server-dir: /ultra-eyes.com/public_html/partner-iol-demo/
           exclude: |
             **/.git*
             **/.git*/**
@@ -40,7 +40,7 @@ jobs:
   #         username: ${{ secrets.FTP_USER }}
   #         password: ${{ secrets.FTP_PASS }}
   #         local-dir: ./
-  #         server-dir: /ultra-eyes.com/public_html/kozawa-iol.ultra-eyes.com/
+  #         server-dir: /ultra-eyes.com/public_html/kozawa-iol/
   #         exclude: |
   #           **/.git*
   #           **/.git*/**
@@ -61,7 +61,7 @@ jobs:
   #         username: ${{ secrets.FTP_USER }}
   #         password: ${{ secrets.FTP_PASS }}
   #         local-dir: ./
-  #         server-dir: /ultra-eyes.com/public_html/imai-iol.ultra-eyes.com/
+  #         server-dir: /ultra-eyes.com/public_html/imai-iol/
   #         exclude: |
   #           **/.git*
   #           **/.git*/**
