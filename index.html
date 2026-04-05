@@ -12,6 +12,9 @@
         // クリニックIDの決定: URLパラメータ > ホスト名 > デフォルト(demo)
         const params = new URLSearchParams(window.location.search);
         const hostMap = {
+            'kozawa-iol.ultra-eyes.com': 'kozawa',
+            'imai-iol.ultra-eyes.com': 'imai',
+            // Netlify（旧・移行完了後に削除）
             'kozawa-iol.netlify.app': 'kozawa',
             'imai-multifocal-iol.netlify.app': 'imai',
             // 新規クリニック追加時はここに1行追加

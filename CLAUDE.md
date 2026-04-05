@@ -9,20 +9,28 @@
 
 ## クリニック別設定
 
-| クリニック | 設定ファイル | レンズ数 | デプロイ先 |
+| クリニック | 設定ファイル | レンズ数 | URL |
 |---|---|---|---|
-| 小沢眼科 | config/kozawa.js | 15 | Netlify |
-| 今井眼科 | config/imai.js | 7 | Netlify |
-| デモ | config/demo.js | — | Netlify |
+| デモ | config/demo.js | — | partner-iol-demo.ultra-eyes.com |
+| 小沢眼科 | config/kozawa.js | 15 | kozawa-iol.ultra-eyes.com（準備中） |
+| 今井眼科 | config/imai.js | 7 | imai-iol.ultra-eyes.com（準備中） |
 
-- 3サイトとも1つのGitHubリポジトリから自動デプロイ
+- 1つのGitHubリポジトリから全サブドメインへ自動FTPデプロイ（GitHub Actions）
 
 ## 技術スタック
 
 - HTML / CSS / JavaScript（フレームワークなし）
-- Netlify でホスティング・自動デプロイ
+- Xserver（ultra-eyes.com）でホスティング
+- GitHub Actions + FTP で自動デプロイ（main push時）
 - フィーチャーフラグ対応
 - ORT向けProモードあり
+
+## デプロイ
+
+- **トリガー:** `main` ブランチへのpush
+- **方式:** GitHub Actions → FTP → Xserver
+- **Secrets:** `FTP_HOST` / `FTP_USER` / `FTP_PASS`（GitHubリポジトリのSettings > Secrets）
+- **サブドメイン追加時:** `.github/workflows/deploy.yml` のコメントアウトを解除
 
 ## 関連プロジェクト
 

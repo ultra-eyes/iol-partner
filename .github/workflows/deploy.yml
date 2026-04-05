@@ -1,0 +1,71 @@
+name: Deploy to Xserver
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy-demo:
+    name: Deploy Demo
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASS }}
+          local-dir: ./
+          server-dir: /ultra-eyes.com/public_html/partner-iol-demo.ultra-eyes.com/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            README.md
+            GUIDE.md
+            CLAUDE.md
+            .claude/**
+
+  # --- 以下はサブドメイン作成後にコメントを外す ---
+  # deploy-kozawa:
+  #   name: Deploy Kozawa
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - name: FTP Deploy
+  #       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+  #       with:
+  #         server: ${{ secrets.FTP_HOST }}
+  #         username: ${{ secrets.FTP_USER }}
+  #         password: ${{ secrets.FTP_PASS }}
+  #         local-dir: ./
+  #         server-dir: /ultra-eyes.com/public_html/kozawa-iol.ultra-eyes.com/
+  #         exclude: |
+  #           **/.git*
+  #           **/.git*/**
+  #           README.md
+  #           GUIDE.md
+  #           CLAUDE.md
+  #           .claude/**
+
+  # deploy-imai:
+  #   name: Deploy Imai
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - name: FTP Deploy
+  #       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+  #       with:
+  #         server: ${{ secrets.FTP_HOST }}
+  #         username: ${{ secrets.FTP_USER }}
+  #         password: ${{ secrets.FTP_PASS }}
+  #         local-dir: ./
+  #         server-dir: /ultra-eyes.com/public_html/imai-iol.ultra-eyes.com/
+  #         exclude: |
+  #           **/.git*
+  #           **/.git*/**
+  #           README.md
+  #           GUIDE.md
+  #           CLAUDE.md
+  #           .claude/**
