@@ -37,6 +37,10 @@
 - `client-kozawa-ganka` — 小沢眼科の案件全体（IOLアプリメンテナンスはAdvanceプランに含む）
 - `client-imai-ganka` — 今井眼科のナレッジベース
 
+## ナレッジ・参考資料
+
+- **`docs/vivity-vs-puresee-clinical-reference.md`** — EDOF 2機種（Vivity / PureSee）の臨床比較リファレンス。Lin et al. 2025 の頭比較データを基に、ハロー・グレア / コントラスト感度 / defocus curve / 患者プロファイル別の優位性をまとめた資料。**`config/*.js` で Vivity / PureSee のスコアリングを編集する際の根拠資料**として参照する（ハロー重視＝Vivity優位、コントラスト・近見＝PureSee優位、など）。
+
 ## 注意事項
 
 - 新クリニック追加時は config/ に設定ファイルを追加するだけでOK
